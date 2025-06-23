@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "target": "ESNext", // 최신 JS 변환
+    "lib": ["dom", "dom.iterable", "esnext"], // 브라우저 + 최신 JS
+    "allowJs": true, // JS 파일도 허용 (필요 시)
+    "skipLibCheck": true, // 타입 정의 파일은 검사 생략
+    "esModuleInterop": true, // CommonJS 호환 import 허용
+    "module": "ESNext",
+    "moduleResolution": "Bundler", // Next.js 13+에 맞는 설정
+    "resolveJsonModule": true, // JSON import 허용
+    "isolatedModules": true, // 개별 파일마다 모듈로 간주
+    "noEmit": true, // 컴파일 결과물 생성 안함 (Next가 대신 처리)
+    "jsx": "preserve", // JSX 그대로 유지 (Next가 처리함)
+    "incremental": true, // 빌드 속도 개선
+    // 타입 검사 강화 옵션
+    "strict": true, // 모든 엄격한 옵션 활성화
+    "forceConsistentCasingInFileNames": true, // 대소문자 구분
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
+  },
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src", "bin"],
+  "exclude": ["node_modules", ".next", "out"]
+}

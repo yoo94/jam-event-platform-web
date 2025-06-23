@@ -1,0 +1,80 @@
+{
+  // 이 설정 파일이 프로젝트 루트에 있는 최상위 ESLint 설정임을 명시
+  // 하위 디렉토리에 또 다른 ESLint 설정이 있더라도 이 설정을 우선 적용
+  "root": true,
+
+  // 확장할 ESLint 설정 목록
+  "extends": [
+    // ✅ Next.js 공식 웹 바이탈 중심 ESLint 설정
+    // React 관련 룰, Next.js 최적화, 웹 퍼포먼스 관련 검사 포함
+    "next/core-web-vitals",
+
+    // ✅ 자바스크립트 일반 권장 규칙 세트
+    // 변수 선언, 제어문, 오류 방지 등 전통적인 JS 검사 룰
+    "eslint:recommended",
+
+    // ✅ TypeScript 관련 권장 규칙 세트
+    // 타입 사용, 미사용 변수, 타입 추론 관련 검사 포함
+    "plugin:@typescript-eslint/recommended",
+
+    // ✅ Prettier와 충돌하는 모든 ESLint 룰 비활성화 + Prettier 검사 활성화
+    // 코드 스타일을 Prettier에 위임하고, 포맷팅 오류를 ESLint로 표시함
+    "plugin:prettier/recommended"
+  ],
+
+  // 사용할 ESLint 플러그인 목록
+  "plugins": [
+    // 🔧 TypeScript용 플러그인 (추가 타입 규칙 지원)
+    "@typescript-eslint",
+    "simple-import-sort"
+  ],
+
+  // 파서 설정 (코드 구문을 어떻게 해석할지 정의)
+  "parser": "@typescript-eslint/parser",
+
+  // 파서 옵션 설정
+  "parserOptions": {
+    // 🔍 ESLint가 TypeScript 설정을 참조할 수 있도록 tsconfig 경로 지정
+    "project": "./tsconfig.json",
+
+    // ES 모듈(예: import/export 구문) 사용을 명시
+    "sourceType": "module",
+
+    // 사용할 ECMAScript 버전 (최신 JS 문법 허용)
+    "ecmaVersion": 2020
+  },
+
+  // 사용자 정의 룰 설정
+  "rules": {
+    // ✅ React 17+에서는 JSX 사용 시 React import가 필요 없어 비활성화
+    "react/react-in-jsx-scope": "off",
+
+    // ⚠️ console.log 사용은 경고 처리 (필요한 디버깅은 허용하되 커밋 전 확인 유도)
+    "no-console": "warn",
+
+    // ❌ JS 기본 미사용 변수 검사 비활성화 (TS 전용 룰로 대체)
+    "no-unused-vars": "off",
+
+    // ⚠️ TypeScript에서 미사용 변수 경고 (단, _로 시작하는 인자는 무시)
+    "@typescript-eslint/no-unused-vars": [
+      "warn",
+      {
+        // _로 시작하는 매개변수는 일부러 무시한다는 의미로 간주 (ex. (_, index) => {})
+        "argsIgnorePattern": "^_"
+      }
+    ],
+    // ✅ import 정렬 자동화
+    "simple-import-sort/imports": "warn",
+    "simple-import-sort/exports": "warn",
+
+    // 🚫 중복된 import 방지
+    "import/no-duplicates": "warn"
+  },
+
+  // ESLint가 검사하지 않을 디렉토리 목록
+  "ignorePatterns": [
+    "node_modules/", // 의존성 디렉토리
+    ".next/", // Next.js 빌드 결과물
+    "out/" // 정적 export 결과물 (next export)
+  ]
+}
