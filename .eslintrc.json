@@ -75,6 +75,7 @@
   "ignorePatterns": [
     "node_modules/", // 의존성 디렉토리
     ".next/", // Next.js 빌드 결과물
-    "out/" // 정적 export 결과물 (next export)
+    "out/", // 정적 export 결과물 (next export)
+    "prettier.config.js" // Prettier 설정 파일
   ]
 }
