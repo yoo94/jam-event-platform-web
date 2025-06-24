@@ -1,6 +1,6 @@
 import { popularEvents } from '@/mock/main';
 import { EventCard } from '@/widgets/components/card/EventCard';
-import { Section } from '@/widgets/components/section';
+import { Section } from '@/widgets/components/Section';
 
 interface PopularEventsSectionProps {
   limit?: number;
