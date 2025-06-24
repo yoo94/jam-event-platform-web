@@ -1,7 +1,7 @@
 {
-  "name": "nextjs14-fsd-starter",
+  "name": "EventJam platform",
   "version": "1.0.0",
-  "description": "nextjs14 fsd architecture",
+  "description": "EventJam platform",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
