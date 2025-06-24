@@ -35,8 +35,12 @@ export default function Home() {
           </div>
         </section>
         <div className="container mx-auto py-12">
-          <FeatureSection />
-          <PopularEventsSection />
+          <div className="mb-32">
+            <FeatureSection />
+          </div>
+          <div className="mt-12">
+            <PopularEventsSection />
+          </div>
         </div>
         {/* CTA 섹션 */}
         <section className="py-20 w-full bg-primary/10">

@@ -1,7 +1,7 @@
 import Link from 'next/link';
 
 import { popularEvents } from '@/mock/main';
-import { EventCard } from '@/widgets/components/card/EventCard';
+import { EventCard } from '@/widgets/components/card/UtillCards';
 import { Section } from '@/widgets/components/shared/Section';
 import { Button } from '@/widgets/components/ui/button';
 
