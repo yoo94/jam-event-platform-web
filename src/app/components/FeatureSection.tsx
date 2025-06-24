@@ -1,6 +1,6 @@
 import { features } from '@/mock/main';
 import { FeatureCard } from '@/widgets/components/card/FeatureCard';
-import { Section } from '@/widgets/components/Section';
+import { Section } from '@/widgets/components/shared/Section';
 
 export function FeatureSection() {
   return (
