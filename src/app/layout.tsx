@@ -9,7 +9,7 @@ import Header from '@/widgets/components/shared/Header';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'JAM EVENT',
+  title: 'JAM 잼',
   description: 'JAM EVENT 플랫폼',
 };
 

@@ -26,7 +26,7 @@ export function PopularEventsSection({ limit }: PopularEventsSectionProps) {
           />
         ))}
       </div>
-      <div className="text-center mt-12">
+      <div className="text-center mt-12 relative">
         <Button variant="outline" asChild>
           <Link href="/events">더 많은 이벤트 보기</Link>
         </Button>

@@ -78,6 +78,6 @@
     "out/", // 정적 export 결과물 (next export)
     "prettier.config.js", // Prettier 설정 파일
     "middleware.ts",
-    "next.config.mjs"
+    "next.config.js"
   ]
 }

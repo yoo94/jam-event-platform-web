@@ -4,6 +4,14 @@ import * as React from 'react';
 
 import { cn } from '@/lib/utils';
 import { Button } from '@/widgets/components/ui/button';
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from '@/widgets/components/ui/card';
 
 type CardVariant = 'feature' | 'event' | 'basic';
 
@@ -26,7 +34,7 @@ type UnifiedCardProps = {
 };
 
 // 기본 이미지 경로 (실제 프로젝트에 맞게 경로 수정 필요)
-const DEFAULT_EVENT_IMAGE = '/images/default-event.jpg';
+const DEFAULT_EVENT_IMAGE = '/images/default-image.png';
 
 export function UnifiedCard({
   title,
@@ -41,57 +49,54 @@ export function UnifiedCard({
   actionText = '자세히 보기',
   ...props
 }: UnifiedCardProps & React.HTMLAttributes<HTMLDivElement>) {
-  // variant별 기본 스타일 정의
-  const getVariantStyles = () => {
-    switch (variant) {
-      case 'feature':
-        return 'bg-gray-50 p-6 rounded-lg border border-gray-200 hover:shadow-md transition-all duration-200';
-      case 'event':
-        return 'bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all duration-200 border border-gray-100';
-      default:
-        return 'bg-white rounded-lg border shadow-sm hover:shadow-md transition';
-    }
-  };
-
   return (
-    <div className={cn(getVariantStyles(), 'flex flex-col h-full', className)} {...props}>
+    <Card
+      className={cn(
+        'flex flex-col h-full transition-transform duration-300 hover:-translate-y-2',
+        variant === 'event' ? 'overflow-hidden' : '',
+        className
+      )}
+      {...props}
+    >
       {/* 이미지 영역 (이벤트 카드) */}
       {variant === 'event' && (
-        <div className="relative h-48 bg-gray-100">
+        <div className="relative w-full h-48 bg-gray-100">
           <Image
             src={image || DEFAULT_EVENT_IMAGE}
             alt={title}
             fill
-            sizes="(max-width: 768px) 100vw, 33vw"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             className="object-cover"
           />
         </div>
       )}
 
-      {/* 컨텐츠 영역 */}
-      <div className="p-6 flex-grow">
-        {variant === 'feature' && icon && <div className="text-4xl mb-4">{icon}</div>}
+      <CardHeader className={variant === 'feature' ? 'pb-0' : ''}>
+        {variant === 'feature' && icon && <div className="text-4xl mb-2">{icon}</div>}
 
         {variant === 'event' && category && (
-          <div className="text-sm text-primary font-semibold mb-2">{category}</div>
+          <div className="text-sm text-primary font-semibold">{category}</div>
         )}
 
-        <h3 className="text-xl font-bold mb-2">{title}</h3>
+        <CardTitle>{title}</CardTitle>
 
-        {variant === 'event' && schedule && <p className="text-gray-600 mb-4">{schedule}</p>}
+        {variant === 'event' && schedule && <p className="text-sm text-gray-600">{schedule}</p>}
+      </CardHeader>
 
-        {description && <p className="text-gray-600">{description}</p>}
-      </div>
+      {description && (
+        <CardContent>
+          <CardDescription className="text-gray-600">{description}</CardDescription>
+        </CardContent>
+      )}
 
-      {/* 버튼 영역 (이벤트 카드) */}
       {variant === 'event' && href && (
-        <div className="px-6 pb-6">
+        <CardFooter className="mt-auto">
           <Button variant="outline" className="w-full" asChild>
             <Link href={href}>{actionText}</Link>
           </Button>
-        </div>
+        </CardFooter>
       )}
-    </div>
+    </Card>
   );
 }
 
@@ -109,7 +114,7 @@ export function FeatureCard({
       title={title}
       description={description}
       icon={icon}
-      className={className}
+      className={cn('bg-gray-50 border-gray-200 hover:shadow-lg', className)}
       {...props}
     />
   );
@@ -123,7 +128,9 @@ export function EventCard({
   href,
   className,
   ...props
-}: Omit<React.ComponentProps<typeof UnifiedCard>, 'variant' | 'description'>) {
+}: Omit<React.ComponentProps<typeof UnifiedCard>, 'variant' | 'description'> & {
+  className?: string;
+}) {
   return (
     <UnifiedCard
       variant="event"
@@ -132,7 +139,7 @@ export function EventCard({
       schedule={schedule}
       image={image}
       href={href}
-      className={className}
+      className={cn('h-auto shadow-md hover:shadow-xl', className)}
       {...props}
     />
   );
