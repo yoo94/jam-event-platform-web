@@ -22,7 +22,7 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link href="/create" className="text-gray-600 hover:text-primary">
+                <Link href="/createEvent" className="text-gray-600 hover:text-primary">
                   이벤트 만들기
                 </Link>
               </li>

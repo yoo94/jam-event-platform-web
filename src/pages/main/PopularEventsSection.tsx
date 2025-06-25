@@ -1,8 +1,8 @@
 import Link from 'next/link';
 
 import { popularEvents } from '@/mock/main';
-import { EventCard } from '@/widgets/components/card/UtillCards';
 import { Section } from '@/widgets/components/shared/Section';
+import { EventCard } from '@/widgets/components/shared/UtillCards';
 import { Button } from '@/widgets/components/ui/button';
 
 interface PopularEventsSectionProps {

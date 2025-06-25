@@ -21,7 +21,7 @@ function HeadBanner() {
               <Link href="/events">이벤트 탐색하기</Link>
             </Button>
             <Button size="lg" variant="outline" asChild>
-              <Link href="/create">이벤트 만들기</Link>
+              <Link href="/createEvent">이벤트 만들기</Link>
             </Button>
           </div>
         </div>

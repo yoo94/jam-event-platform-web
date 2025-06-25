@@ -24,9 +24,15 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <body className={inter.className}>
-        <Header />
-        {children}
-        <Footer />
+        <div className="flex flex-col min-h-screen">
+          <Header /> {/* 헤더를 고정 */}
+          <main className="flex-grow pt-24">
+            {' '}
+            {/* 헤더 높이만큼 상단 패딩 추가 */}
+            {children}
+          </main>
+          <Footer />
+        </div>
       </body>
     </html>
   );
