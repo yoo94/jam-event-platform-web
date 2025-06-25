@@ -1,7 +1,7 @@
-import BottomBanner from '../pages/main/BottomBanner';
-import { FeatureSection } from '../pages/main/FeatureSection';
-import HeadBanner from '../pages/main/HeadBanner';
-import { PopularEventsSection } from '../pages/main/PopularEventsSection';
+import BottomBanner from '@/slices/main/BottomBanner';
+import { FeatureSection } from '@/slices/main/FeatureSection';
+import HeadBanner from '@/slices/main/HeadBanner';
+import { PopularEventsSection } from '@/slices/main/PopularEventsSection';
 
 export default function Home() {
   return (
