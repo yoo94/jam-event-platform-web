@@ -41,19 +41,20 @@ export function UnifiedCard({
   actionText = '자세히 보기',
   ...props
 }: UnifiedCardProps & React.HTMLAttributes<HTMLDivElement>) {
+  // variant별 기본 스타일 정의
+  const getVariantStyles = () => {
+    switch (variant) {
+      case 'feature':
+        return 'bg-gray-50 p-6 rounded-lg border border-gray-200 hover:shadow-md transition-all duration-200';
+      case 'event':
+        return 'bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all duration-200 border border-gray-100';
+      default:
+        return 'bg-white rounded-lg border shadow-sm hover:shadow-md transition';
+    }
+  };
+
   return (
-    <div
-      className={cn(
-        'rounded-lg overflow-hidden',
-        'bg-white shadow-md', // shadow-sm에서 shadow-md로 변경하여 그림자 강화
-        'border border-gray-300', // border-gray-100에서 border-gray-300으로 변경하여 테두리 강화
-        'transition-all duration-300',
-        'hover:shadow-lg hover:translate-y-[-2px]', // shadow-md에서 shadow-lg로 변경
-        'flex flex-col h-full',
-        className
-      )}
-      {...props}
-    >
+    <div className={cn(getVariantStyles(), 'flex flex-col h-full', className)} {...props}>
       {/* 이미지 영역 (이벤트 카드) */}
       {variant === 'event' && (
         <div className="relative h-48 bg-gray-100">
@@ -69,7 +70,7 @@ export function UnifiedCard({
 
       {/* 컨텐츠 영역 */}
       <div className="p-6 flex-grow">
-        {variant === 'feature' && icon && <div className="text-4xl mb-4 text-primary">{icon}</div>}
+        {variant === 'feature' && icon && <div className="text-4xl mb-4">{icon}</div>}
 
         {variant === 'event' && category && (
           <div className="text-sm text-primary font-semibold mb-2">{category}</div>
