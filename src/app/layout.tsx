@@ -9,8 +9,11 @@ import Header from '@/widgets/components/shared/Header';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'JAM 잼',
+  title: 'JAM EVENT',
   description: 'JAM EVENT 플랫폼',
+  icons: {
+    icon: '/images/favicon.ico',
+  },
 };
 
 export default function RootLayout({

@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 
 import { Button } from '@/widgets/components/ui/button';
@@ -7,7 +8,13 @@ const Header = () => {
     <header className="border-b bg-white fixed w-full top-0 z-50">
       <div className="container mx-auto flex items-center justify-between h-16 px-4">
         <Link href="/" className="text-4xl font-bold text-primary">
-          EventJAM
+          <Image
+            src="/images/logo.png"
+            alt="EventJAM Logo"
+            width={150}
+            height={100}
+            className="ml-2"
+          />
         </Link>
 
         <nav className="hidden md:flex items-center space-x-6">
