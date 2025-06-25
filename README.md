@@ -33,33 +33,51 @@ npm install --save-dev eslint-plugin-import eslint-plugin-simple-import-sort
 
 ### FSD 아키텍처 (템플릿 구조)
 
-#### Layers
+```text
+/src
+  /app                      # Next.js의 라우트 진입점
+    /(main)                # 라우트 그룹: 실제 페이지 구조와 매칭
+      /home
+        page.tsx
+      /profile
+        layout.tsx
+        page.tsx
+    /api                   # API 라우트 (app 기반이면 여기도 가능)
+  /shared                  # 전역 공통 모듈
+    /ui                    # 공통 UI 컴포넌트(Button, Text 등)
+    /lib                   # 헬퍼 함수, API 클라이언트
+    /config                # 설정 파일들(env, theme 등)
+    /types                 # 글로벌 타입 정의
+    /hooks
+  /entities                # 도메인 모델 단위(User, Product 등) / 도메인(실체) 중심
+    /user
+      /model               # 상태, 스토어, 비즈니스 로직
+        useUserStore.ts         # 사용자 상태를 관리하는 Zustand store
+        user.ts                 # User 타입 정의, 유저 관련 로직
+      /ui
+        UserAvatar.tsx          // 유저 프로필 사진을 보여주는 UI 컴포넌트
+        UserName.tsx            // 유저 이름만 보여주는 컴포넌트
+    /event
+      /model               # 상태, 스토어, 비즈니스 로직
+        useEventStore.ts         # 이벤트 상태를 관리하는 Zustand store
+        event.ts                 # event 타입 정의, 유저 관련 로직
+      /ui
+        EventCard.tsx          // 이벤트 상세내용만 보여주는 카드
+  /features                # 사용자 행동 단위 기능들 / "행위" 중심의 기능 모듈
+    /auth
+      /model
+      /ui
+      /api
+  /widgets                 # 페이지 구성 요소(Header, Footer 등)
+    /layout
+      Header.tsx
+      Footer.tsx
+  /processes               # 복합 플로우 예: Checkout, Onboarding
+```
 
-- app: 애플리케이션 로직이 초기화되는 곳입니다. 프로바이더, 라우터, 전역 스타일, 전역 타입 선언 등이 여기에서 정의됩니다. 애플리케이션의 진입점 역할을 합니다.
-- pages: 이 레이어에는 애플리케이션의 페이지가 포함됩니다.
-- widgets: 페이지에 사용되는 독립적인 UI 컴포넌트입니다.
-- features: 이 레이어는 비즈니스 가치를 전달하는 사용자 시나리오와 기능을 다룹니다. 예를 들어 좋아요, 리뷰 작성, 제품 평가 등이 있습니다. 선택적 레이어입니다.
-- shared: 이 레이어에는 특정 비즈니스 로직에 종속되지 않은 재사용 가능한 컴포넌트와 유틸리티가 포함되어 있습니다. 여기에는 UI 키트, axios 설정, 애플리케이션 설정, 비즈니스 로직에 묶이지 않은 헬퍼 등이 포함됩니다.
-
-  ** 위 구조는 탑다운 방식이다. 즉 위 디렉토리는 아래 디렉토리를 사용해도 되지만 하위 디렉토리는 상위를 사용하지 않는 규칙을 가져야 한다. **
-  ex : app에서는 다 쓸수있고, pages를 쓸수있는건 app 뿐이고 그런식
-
-#### Slices
-
-각 레이어에는 애플리케이션 분해의 두 번째 수준인 슬라이스라는 하위 디렉토리가 있다.
-슬라이스에서 연결은 추상적인 것이 아니라 특정 비즈니스 엔티티에 대한 것! 슬라이스의 주요 목표는 코드를 값별로 그룹화하는 것이다.
-
-#### Segments
-
-각 슬라이스는 세그먼트로 구성된다. 세그먼트는 목적에 따라 슬라이스 내의 코드를 나누는 데 도움이 된다. 팀의 합의에 따라 세그먼트의 구성과 이름이 변경될 수 있다.
-일반적으로 사용되는 세그먼트들은 다음과 같다.
-
-- api - 필요한 서버 요청.
-- UI - 슬라이스의 UI 컴포넌트.
-- model - 비즈니스 로직, 즉 상태와의 상호 작용. actions 및 selectors가 이에 해당
-- lib - 슬라이스 내에서 사용되는 보조 기능.
-- config - 슬라이스에 필요한 구성값이지만 구성 세그먼트는 거의 필요하지 않음.
-- consts - 필요한 상수.
+- entities: 조각조각 부품 / 핵심 도메인 모델별 상태 & UI 컴포넌트 보관소 → 단일 도메인(예: user, event)에 집중된 책임
+- features: 조립해서 기능 수행 / 사용자 행위 중심의 기능 단위 (예: auth, addToCart 등) → 여러 entity를 조합해서 동작하는 기능
+- widgets: 전체적인 레이아웃 조립 / 페이지 구성에 사용되는 고수준 UI 조합 (Header, Footer 등) → 여러 features, entities를 포함하는 조립 단위
 
 ---
 
