@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "EventJam platform",
   "scripts": {
-    "dev": "next dev",
+    "loc": "next dev -p 3000",
+    "dev": "next build && next start -p 3000",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
