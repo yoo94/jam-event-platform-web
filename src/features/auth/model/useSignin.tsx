@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 
-import { SigninFormValues } from '@/entities/auth/SignInForm';
+import { SigninFormValues } from '@/shared/types/auth';
 
 // Zod 스키마 정의
 const signinSchema = z.object({

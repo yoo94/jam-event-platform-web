@@ -76,7 +76,7 @@ function SignInDialog({ isOpen, onClose }: SignInDialogProps) {
         </form>
 
         <div className="mt-4 text-center text-sm">
-          <SignUpButton isSubmitting={isSubmitting} />
+          <SignUpButton />
         </div>
       </div>
     </div>
