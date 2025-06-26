@@ -31,7 +31,7 @@ function SignInDialog({ isOpen, onClose }: SignInDialogProps) {
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
       <div className="bg-white p-6 rounded-lg shadow-xl w-full max-w-xl">
         <div className="flex justify-between items-center mb-4">
-          <Logo />
+          <Logo width={150} height={50} />
           <div>로그인 후 이벤트 JAM을 이용해보세요!</div>
           <button
             onClick={onClose}

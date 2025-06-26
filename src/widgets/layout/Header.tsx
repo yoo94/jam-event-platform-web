@@ -12,7 +12,7 @@ const Header = () => {
   return (
     <header className="border-b bg-white w-full sticky top-0 z-50">
       <div className="container mx-auto flex items-center justify-between h-16 px-4">
-        <Logo />
+        <Logo width={150} height={100} />
         <nav className="hidden md:flex items-center space-x-6">
           <Button variant="ghost" asChild>
             <Link href="/events">이벤트 찾기</Link>
