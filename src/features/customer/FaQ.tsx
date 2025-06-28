@@ -5,15 +5,27 @@ import React, { useState } from 'react';
 import { FaqCard } from '@/entities/customer/FaqCard';
 import { faqCategories, faqData } from '@/shared/mock/customer';
 import { Button } from '@/shared/ui/button';
+import { Collapsible } from '@/shared/ui/collapsible';
 import { TabsContent } from '@/shared/ui/tabs';
 
 export default function FaqPage() {
   const [selectedCategory, setSelectedCategory] = useState('전체');
+  const [openItems, setOpenItems] = useState<Set<number>>(new Set());
 
   const filteredFaq =
     selectedCategory === '전체'
       ? faqData
       : faqData.filter(faq => faq.category === selectedCategory);
+
+  const toggleItem = (id: number) => {
+    const newOpenItems = new Set(openItems);
+    if (newOpenItems.has(id)) {
+      newOpenItems.delete(id);
+    } else {
+      newOpenItems.add(id);
+    }
+    setOpenItems(newOpenItems);
+  };
 
   return (
     <TabsContent value="faq" className="mt-6">
@@ -41,7 +53,18 @@ export default function FaqPage() {
         {/* FAQ 목록 */}
         <div className="max-w-4xl mx-auto space-y-4">
           {filteredFaq.map(faq => (
-            <FaqCard key={faq.id} question={faq.question} answer={faq.answer} />
+            <Collapsible
+              key={faq.id}
+              open={openItems.has(faq.id)}
+              onOpenChange={() => toggleItem(faq.id)}
+            >
+              <FaqCard
+                question={faq.question}
+                answer={faq.answer}
+                isOpen={openItems.has(faq.id)}
+                onToggle={() => toggleItem(faq.id)}
+              />
+            </Collapsible>
           ))}
         </div>
 
