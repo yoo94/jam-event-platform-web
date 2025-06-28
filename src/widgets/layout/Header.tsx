@@ -15,10 +15,13 @@ const Header = () => {
         <Logo width={150} height={100} />
         <nav className="hidden md:flex items-center space-x-6">
           <Button variant="ghost" asChild>
-            <Link href="/events">이벤트 찾기</Link>
+            <Link href="/events">참여 이벤트 찾기</Link>
           </Button>
           <Button variant="ghost" asChild>
             <Link href="/createEvent">이벤트 만들기</Link>
+          </Button>
+          <Button variant="ghost" asChild>
+            <Link href="/customer">고객 센터</Link>
           </Button>
           <Button variant="ghost" asChild>
             <Link href="/about">서비스 소개</Link>
