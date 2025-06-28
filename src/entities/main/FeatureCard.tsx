@@ -1,22 +1,35 @@
-import { cn } from '@/shared/lib/utils';
-import { UnifiedCard } from '@/shared/ui/custom/UtillCards';
+import * as React from 'react';
 
-// 기존 컴포넌트들과 호환성을 위한 래퍼 컴포넌트
-export function FeatureCard({
-  title,
-  description,
-  icon,
-  className,
-  ...props
-}: React.ComponentProps<typeof UnifiedCard>) {
+import { cn } from '@/shared/lib/utils';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/shared/ui/card';
+
+type FeatureCardProps = {
+  title: string;
+  description?: string;
+  icon?: React.ReactNode;
+  className?: string;
+} & React.HTMLAttributes<HTMLDivElement>;
+
+export function FeatureCard({ title, description, icon, className, ...props }: FeatureCardProps) {
   return (
-    <UnifiedCard
-      variant="feature"
-      title={title}
-      description={description}
-      icon={icon}
-      className={cn('bg-gray-50 border-gray-200 hover:shadow-lg', className)}
+    <Card
+      className={cn(
+        'flex flex-col h-full transition-transform duration-300 hover:-translate-y-2',
+        'bg-gray-50 border-gray-200 hover:shadow-lg',
+        className
+      )}
       {...props}
-    />
+    >
+      <CardHeader className="pb-0">
+        {icon && <div className="text-4xl mb-2">{icon}</div>}
+        <CardTitle>{title}</CardTitle>
+      </CardHeader>
+
+      {description && (
+        <CardContent>
+          <CardDescription className="text-gray-600">{description}</CardDescription>
+        </CardContent>
+      )}
+    </Card>
   );
 }

@@ -21,10 +21,10 @@ const Header = () => {
             <Link href="/createEvent">이벤트 만들기</Link>
           </Button>
           <Button variant="ghost" asChild>
-            <Link href="/customer">서비스 소개</Link>
+            <Link href="/customer">고객 센터</Link>
           </Button>
           <Button variant="ghost" asChild>
-            <Link href="/about">고객 센터</Link>
+            <Link href="/about">서비스 소개</Link>
           </Button>
           <Button onClick={() => setIsLoginDialogOpen(true)}>로그인/회원가입</Button>
         </nav>
