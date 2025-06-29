@@ -3,6 +3,7 @@
 import React from 'react';
 
 import { SelectField, TextAreaField, TextField } from '@/entities/customer/AskFormField';
+import CommonHeader from '@/entities/customer/CommonHeader';
 import { useAskForm } from '@/features/customer/model/useAskForm';
 import { Button } from '@/shared/ui/button';
 import { Form } from '@/shared/ui/form';
@@ -15,7 +16,7 @@ export default function AskTab() {
     <TabsContent value="inquiry" className="mt-6">
       <div className="flex justify-center items-center min-h-[600px]">
         <div className="w-full max-w-2xl px-4">
-          <h2 className="text-2xl font-bold mb-6 text-center">문의하기</h2>
+          <CommonHeader title="문의하기" />
 
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
