@@ -58,3 +58,97 @@ export const faqData = [
 ];
 
 export const faqCategories = ['전체', '일반', '요금', '기능', '기술지원', '보안', '결제'];
+
+export const contactData = {
+  title: '연락처 정보',
+  cards: [
+    {
+      id: 'phone',
+      title: '📞 전화 문의',
+      subtitle: '1588-1234',
+      descriptions: ['평일 09:00 - 18:00', '토요일 09:00 - 13:00', '일요일, 공휴일 휴무'],
+    },
+    {
+      id: 'email',
+      title: '✉️ 이메일 문의',
+      subtitle: 'support@eventjam.com',
+      descriptions: ['24시간 접수 가능', '영업일 기준 24시간 내 답변'],
+    },
+    {
+      id: 'company',
+      title: '🏢 회사 정보',
+      descriptions: [
+        '회사명: (주)이벤트잼',
+        '대표자: 홍길동',
+        '사업자등록번호: 123-45-67890',
+        '주소: 서울시 강남구 테헤란로 123',
+      ],
+    },
+    {
+      id: 'hours',
+      title: '⏰ 운영 시간',
+      descriptions: [
+        '평일: 09:00 - 18:00',
+        '토요일: 09:00 - 13:00',
+        '일요일: 휴무',
+        '공휴일: 휴무',
+      ],
+    },
+  ],
+};
+
+export const helpInfoData = {
+  title: '도움말',
+  cards: [
+    {
+      id: 'participate',
+      title: '🎯 이벤트 참여하기',
+      type: 'ordered',
+      descriptions: [
+        '회원가입 후 로그인',
+        '원하는 이벤트 선택',
+        '참여하기 버튼 클릭',
+        '참여 정보 입력',
+        '결제 완료',
+      ],
+    },
+    {
+      id: 'create',
+      title: '📝 이벤트 만들기',
+      type: 'ordered',
+      descriptions: [
+        '로그인 후 이벤트 만들기 클릭',
+        '이벤트 기본 정보 입력',
+        '상세 내용 및 이미지 추가',
+        '참여비 및 정원 설정',
+        '이벤트 공개',
+      ],
+    },
+    {
+      id: 'payment',
+      title: '💳 결제 및 환불',
+      type: 'complex',
+      sections: [
+        {
+          title: '결제 방법',
+          items: ['• 신용카드 (국내/해외)', '• 계좌이체', '• 간편결제 (카카오페이, 네이버페이)'],
+        },
+        {
+          title: '환불 정책',
+          items: ['• 24시간 전: 100% 환불', '• 12시간 전: 50% 환불', '• 이후: 환불 불가'],
+        },
+      ],
+    },
+    {
+      id: 'tech',
+      title: '🔧 기술 지원',
+      type: 'simple',
+      descriptions: [
+        '브라우저: Chrome, Firefox, Safari 최신 버전',
+        '쿠키: 활성화 필요',
+        '자바스크립트: 활성화 필요',
+        '문제 발생 시 브라우저 캐시를 삭제해보세요.',
+      ],
+    },
+  ],
+};
