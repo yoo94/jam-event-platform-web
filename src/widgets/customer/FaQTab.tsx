@@ -8,7 +8,7 @@ import { Button } from '@/shared/ui/button';
 import { Collapsible } from '@/shared/ui/collapsible';
 import { TabsContent } from '@/shared/ui/tabs';
 
-export default function FaqPage() {
+export default function FaqTab() {
   const [selectedCategory, setSelectedCategory] = useState('전체');
   const [openItems, setOpenItems] = useState<Set<number>>(new Set());
 
