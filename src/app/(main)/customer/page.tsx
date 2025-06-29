@@ -1,11 +1,11 @@
 import React from 'react';
 
-import Contact from '@/entities/customer/Contact';
-import HelpInfo from '@/entities/customer/HelpInfo';
 import TabList from '@/entities/customer/TabList';
 import { Tabs } from '@/shared/ui/tabs';
-import Ask from '@/widgets/customer/AskTab';
-import FaQ from '@/widgets/customer/FaQTab';
+import AskTab from '@/widgets/customer/AskTab';
+import ContactTab from '@/widgets/customer/ContactTab';
+import FaQTab from '@/widgets/customer/FaQTab';
+import HelpInfoTab from '@/widgets/customer/HelpInfoTab';
 
 export default function CustomerPage() {
   return (
@@ -18,16 +18,16 @@ export default function CustomerPage() {
           <TabList />
 
           {/* 자주 묻는 질문 */}
-          <FaQ />
+          <FaQTab />
 
           {/* 문의하기 폼 */}
-          <Ask />
+          <AskTab />
 
           {/* 연락처 정보 */}
-          <Contact />
+          <ContactTab />
 
           {/* 도움말 */}
-          <HelpInfo />
+          <HelpInfoTab />
         </Tabs>
       </div>
     </>
