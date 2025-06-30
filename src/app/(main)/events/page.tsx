@@ -90,9 +90,11 @@ export default function EventsPage() {
             </CardContent>
 
             <CardFooter className="mt-auto p-5 pt-0">
-              <Button variant="outline" className="w-full" asChild>
-                <Link href={`/events/${event.id}`}>자세히 보기</Link>
-              </Button>
+              <Link href={`/events/${event.id}`}>
+                <Button variant="outline" className="w-full">
+                  자세히 보기
+                </Button>
+              </Link>
             </CardFooter>
           </Card>
         ))}
