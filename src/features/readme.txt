@@ -1,1 +1,0 @@
-- features: 조립해서 기능 수행 / 사용자 행위 중심의 기능 단위 (예: auth, addToCart 등) → 여러 entity를 조합해서 동작하는 기능
