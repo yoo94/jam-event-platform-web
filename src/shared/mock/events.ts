@@ -71,4 +71,88 @@ export const events = [
     description:
       '데이터 시각화에 관한 최신 기술과 사례를 공유하는 워크샵입니다. 다양한 도구와 기법을 활용하여 데이터 시각화를 실습할 수 있습니다.',
   },
+  {
+    id: '7',
+    title: '클라우드 네이티브 개발 세미나',
+    category: '세미나',
+    schedule: '2024년 9월 15일',
+    location: '서울 강서구',
+    image: '/images/default-image.png',
+    host: '클라우드 개발자 모임',
+    fee: '무료',
+    description:
+      '클라우드 네이티브 개발에 관한 최신 트렌드와 사례를 공유하는 세미나입니다. 다양한 전문가들의 강연과 패널 토론이 진행됩니다.',
+  },
+  {
+    id: '8',
+    title: '풀스택 개발자 컨퍼런스',
+    category: '컨퍼런스',
+    schedule: '2024년 10월 1일',
+    location: '서울 중구',
+    image: '/images/default-image.png',
+    host: '풀스택 개발자 모임',
+    fee: '무료',
+    description:
+      '풀스택 개발에 관한 최신 기술과 트렌드를 공유하는 컨퍼런스입니다. 다양한 분야의 전문가들이 참여하여 강연과 네트워킹 기회를 제공합니다.',
+  },
+  {
+    id: '9',
+    title: '웹 접근성 워크샵',
+    category: '워크샵',
+    schedule: '2024년 10월 15일',
+    location: '서울 용산구',
+    image: '/images/default-image.png',
+    host: '웹 접근성 협회',
+    fee: '무료',
+    description:
+      '웹 접근성에 관한 최신 기술과 사례를 공유하는 워크샵입니다. 다양한 도구와 기법을 활용하여 웹 접근성을 실습할 수 있습니다.',
+  },
+  {
+    id: '10',
+    title: '자바스크립트 성능 최적화 세미나',
+    category: '세미나',
+    schedule: '2024년 10월 30일',
+    location: '서울 동대문구',
+    image: '/images/default-image.png',
+    host: '자바스크립트 개발자 모임',
+    fee: '무료',
+    description:
+      '자바스크립트 성능 최적화에 관한 최신 기술과 사례를 공유하는 세미나입니다. 다양한 전문가들의 강연과 패널 토론이 진행됩니다.',
+  },
+  {
+    id: '11',
+    title: 'AI와 머신러닝 개발자 컨퍼런스',
+    category: '컨퍼런스',
+    schedule: '2024년 11월 5일',
+    location: '서울 강남구',
+    image: '/images/default-image.png',
+    host: 'AI 개발자 모임',
+    fee: '무료',
+    description:
+      'AI와 머신러닝 개발에 관한 최신 기술과 트렌드를 공유하는 컨퍼런스입니다. 다양한 분야의 전문가들이 참여하여 강연과 네트워킹 기회를 제공합니다.',
+  },
+  {
+    id: '12',
+    title: '웹 보안 워크샵',
+    category: '워크샵',
+    schedule: '2024년 11월 20일',
+    location: '서울 마포구',
+    image: '/images/default-image.png',
+    host: '웹 보안 협회',
+    fee: '무료',
+    description:
+      '웹 보안에 관한 최신 기술과 사례를 공유하는 워크샵입니다. 다양한 도구와 기법을 활용하여 웹 보안을 실습할 수 있습니다.',
+  },
+  {
+    id: '13',
+    title: '프론트엔드 성능 최적화 세미나',
+    category: '세미나',
+    schedule: '2024년 12월 1일',
+    location: '서울 서초구',
+    image: '/images/default-image.png',
+    host: '프론트엔드 개발자 모임',
+    fee: '무료',
+    description:
+      '프론트엔드 성능 최적화에 관한 최신 기술과 사례를 공유하는 세미나입니다. 다양한 전문가들의 강연과 패널 토론이 진행됩니다.',
+  },
 ];
