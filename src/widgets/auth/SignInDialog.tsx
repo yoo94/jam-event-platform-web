@@ -1,3 +1,4 @@
+import { signIn } from 'next-auth/react';
 import React from 'react';
 
 import SignInButton from '@/entities/auth/SignInButton';
@@ -6,25 +7,17 @@ import SignUpButton from '@/entities/auth/SignUpButton';
 import SocialLoginButton from '@/entities/auth/SocialLoginButton';
 import Logo from '@/entities/main/Logo';
 import { useSignin } from '@/features/auth/model/useSignin';
-
 interface SignInDialogProps {
   isOpen: boolean;
   onClose: () => void;
 }
 
 function SignInDialog({ isOpen, onClose }: SignInDialogProps) {
-  const {
-    register,
-    handleSubmit,
-    onSubmit,
-    errors,
-    isSubmitting,
-    error,
-    handleGoogleLogin,
-    handleKakaoLogin,
-    handleNaverLogin,
-  } = useSignin();
-
+  const { register, handleSubmit, onSubmit, errors, isSubmitting, error } = useSignin();
+  // NextAuth 소셜 로그인 핸들러
+  const handleGoogleLogin = () => signIn('google');
+  const handleKakaoLogin = () => signIn('kakao');
+  const handleNaverLogin = () => signIn('naver');
   if (!isOpen) return null;
 
   return (
@@ -64,17 +57,15 @@ function SignInDialog({ isOpen, onClose }: SignInDialogProps) {
           <div className="mt-6">
             <SignInButton isSubmitting={isSubmitting} />
           </div>
-
-          <div className="mt-6">
-            <SocialLoginButton
-              onGoogleLogin={handleGoogleLogin}
-              onKakaoLogin={handleKakaoLogin}
-              onNaverLogin={handleNaverLogin}
-              isDisabled={isSubmitting}
-            />
-          </div>
         </form>
-
+        <div className="mt-6">
+          <SocialLoginButton
+            onGoogleLogin={handleGoogleLogin}
+            onKakaoLogin={handleKakaoLogin}
+            onNaverLogin={handleNaverLogin}
+            isDisabled={isSubmitting}
+          />
+        </div>
         <div className="mt-4 text-center text-sm">
           <SignUpButton />
         </div>

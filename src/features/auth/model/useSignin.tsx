@@ -39,19 +39,6 @@ export function useSignin() {
     }
   };
 
-  // 소셜 로그인 핸들러
-  const handleGoogleLogin = () => {
-    // 구글 OAuth 로직 구현
-  };
-
-  const handleKakaoLogin = () => {
-    // 카카오 OAuth 로직 구현
-  };
-
-  const handleNaverLogin = () => {
-    // 네이버 OAuth 로직 구현
-  };
-
   return {
     register,
     handleSubmit,
@@ -59,8 +46,5 @@ export function useSignin() {
     errors,
     isSubmitting: isLoading || isSubmitting,
     error,
-    handleGoogleLogin,
-    handleKakaoLogin,
-    handleNaverLogin,
   };
 }
