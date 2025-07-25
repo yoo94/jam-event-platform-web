@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "EventJam platform",
   "scripts": {
+    "loc": "env-cmd -f ./env/.env.local next dev -p 3000",
     "dev": "next dev",
     "build": "next build",
     "start": "next start -p 3000",
@@ -77,6 +78,7 @@
     "@types/react-dom": "^18",
     "@typescript-eslint/eslint-plugin": "^7.2.0",
     "@typescript-eslint/parser": "^7.2.0",
+    "env-cmd": "^10.1.0",
     "eslint": "^8.57.1",
     "eslint-config-next": "^14.2.0",
     "eslint-config-prettier": "^10.1.1",
